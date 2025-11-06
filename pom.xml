@@ -5,10 +5,9 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.mycompany</groupId>
-		<artifactId>parent-pom</artifactId>
-		<version>1.0.0-SNAPSHOT</version>
-		<relativePath>com/mycompany/parent-pom/1.0.0-SNAPSHOT/parent-pom-1.0.0-SNAPSHOT.pom
-		</relativePath>
+		<artifactId>${artifactId}</artifactId>
+		<version>${version}</version>
+		<relativePath>${relativePath}</relativePath>
 	</parent>
 	<groupId>com.mycompany</groupId>
 	<artifactId>emrdsf-eu-s-einvoicing-esker</artifactId>
