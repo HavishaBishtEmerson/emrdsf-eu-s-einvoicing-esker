@@ -1,0 +1,861 @@
+#%RAML 1.0
+types:
+  MessageHeader_MessageTracking:
+    type: object
+    properties:
+      SequenceNumber?:
+        type: string
+      ExecutionUnitID?:
+        type: string
+      ExecutionUnitName?:
+        type: string
+      ImplementationCode?:
+        type: string
+      ActivityDateTime?:
+        type: string
+      IntermediateMessageHop?: MessageHeader_MessageTracking_IntermediateMessageHop
+  MessageHeader_FaultNotification:
+    type: object
+    properties:
+      BusinessComponentID?:
+        type: string
+      ReportingDateTime?:
+        type: string
+      CorrectiveAction?:
+        type: string
+      FaultMessage?: MessageHeader_FaultNotification_FaultMessage
+      FaultingService?: MessageHeader_FaultNotification_FaultingService
+  Transaction:
+    type: object
+    properties:
+      Identification?: Transaction_Identification
+      SOURCE_TRANSACTION_PK?:
+        type: string
+      Num?:
+        type: string
+      Type?:
+        type: string
+      Date?:
+        type: string
+      Amount?:
+        type: string
+      CurrencyCode?:
+        type: string
+      ExchangeRate?:
+        type: string
+      ExchangeRateType?:
+        type: string
+      ExchangeDate?:
+        type: string
+      Description?:
+        type: string
+      Address1?: Transaction_Address1
+      Address2?: Transaction_Address2
+      Address3?: Transaction_Address3
+      Address4?: Transaction_Address4
+      TaxReferences?: Transaction_TaxReferences
+      TransactionReferences?: Transaction_TaxReferences
+      TransactionValues?: Transaction_TransactionValues
+      TransactionContacts?: Transaction_TransactionContacts
+      TransactionLine?:
+        type: array
+        items: Transaction_TransactionLine
+      TransactionSummary1?:
+        type: array
+        items: Transaction_TransactionSummary1
+      TransactionSummary2?:
+        type: array
+        items: Transaction_TransactionSummary1
+  Transaction_TransactionValues:
+    type: object
+    properties:
+      Val1?:
+        type: string
+      Val2?:
+        type: string
+      Val3?:
+        type: string
+      Val4?:
+        type: string
+      Val5?:
+        type: string
+      Val6?:
+        type: string
+      Val7?:
+        type: string
+      Val8?:
+        type: string
+      Val9?:
+        type: string
+      Val10?:
+        type: string
+  Transaction_Address2:
+    type: object
+    properties:
+      Name?:
+        type: string
+      Num?:
+        type: string
+      AddressLine1?:
+        type: string
+      AddressLine2?:
+        type: string
+      AddressLine3?:
+        type: string
+      AddressLine4?:
+        type: string
+      City?:
+        type: string
+      State?:
+        type: string
+      Province?:
+        type: string
+      County?:
+        type: string
+      Country?:
+        type: string
+      PostalCode?:
+        type: string
+      Formatted?:
+        type: string
+      Address2Ref1?:
+        type: string
+      Address2Ref2?:
+        type: string
+      Address2Ref3?:
+        type: string
+  MessageHeader_UserArea:
+    type: object
+    properties:
+      KeyName?:
+        type: string
+      Value?:
+        type: string
+  Error:
+    type: object
+    properties:
+      statuscode:
+        type: string
+        required: true
+      status:
+        type: string
+        required: true
+      datetime_?:
+        type: string
+      errorMessage?: Error_errorMessage
+  MessageHeader_FaultNotification_FaultingService:
+    type: object
+    properties:
+      ID?:
+        type: string
+      ImplementationCode?:
+        type: string
+      InstanceID?:
+        type: string
+      ProjectName?:
+        type: string
+      ServiceName?:
+        type: string
+      ActivityName?:
+        type: string
+      CompositeName?:
+        type: string
+      ComponentName?:
+        type: string
+  Transaction_Address3:
+    type: object
+    properties:
+      Name?:
+        type: string
+      Num?:
+        type: string
+      AddressLine1?:
+        type: string
+      AddressLine2?:
+        type: string
+      AddressLine3?:
+        type: string
+      AddressLine4?:
+        type: string
+      City?:
+        type: string
+      State?:
+        type: string
+      Province?:
+        type: string
+      County?:
+        type: string
+      Country?:
+        type: string
+      PostalCode?:
+        type: string
+      Formatted?:
+        type: string
+      Address3Ref1?:
+        type: string
+      Address3Ref2?:
+        type: string
+      Address3Ref3?:
+        type: string
+  MessageHeader_MessageBatch_BatchParameter:
+    type: object
+    properties:
+      Name?:
+        type: string
+      DataTypeCode?:
+        type: string
+      Value?:
+        type: string
+  MessageHeader:
+    type: object
+    properties:
+      MessageID?:
+        type: string
+      Sender?: MessageHeader_Sender
+      Target?: MessageHeader_Target
+      BusinessGroup?:
+        type: string
+      MessageName?:
+        type: string
+      BusinessObjectName?:
+        type: string
+      CreationDateTime?:
+        type: string
+      RequestMessageID?:
+        type: string
+      MessageProcessingInstruction?: MessageHeader_MessageProcessingInstruction
+      FaultNotification?: MessageHeader_FaultNotification
+      MessageBatch?: MessageHeader_MessageBatch
+      MessageTracking?: MessageHeader_MessageTracking
+      CompanyCode?:
+        type: string
+      OrganisationCode?:
+        type: string
+      Action?:
+        type: string
+      UserID?:
+        type: string
+      UserArea?: MessageHeader_UserArea
+  Transaction_Address4:
+    type: object
+    properties:
+      Name?:
+        type: string
+      Num?:
+        type: string
+      AddressLine1?:
+        type: string
+      AddressLine2?:
+        type: string
+      AddressLine3?:
+        type: string
+      AddressLine4?:
+        type: string
+      City?:
+        type: string
+      State?:
+        type: string
+      Province?:
+        type: string
+      County?:
+        type: string
+      Country?:
+        type: string
+      PostalCode?:
+        type: string
+      Formatted?:
+        type: string
+      Address4Ref1?:
+        type: string
+      Address4Ref2?:
+        type: string
+      Address4Ref3?:
+        type: string
+  einvoice_eGovData:
+    type: object
+    properties:
+      MessageHeader?: MessageHeader
+      DataArea?: einvoice_eGovData_DataArea
+  Transaction_TransactionSummary1:
+    type: object
+    properties:
+      GroupNum?:
+        type: string
+      GroupDescription?:
+        type: string
+      GroupQuantities?: Transaction_LineQuantities
+      GroupValues?: Transaction_LineValues
+      GroupDates?: Transaction_LineDates
+      GroupReferences?: Transaction_GroupReferences
+      GroupTaxReferences?: Transaction_GroupReferences
+  Transaction_TaxReferences:
+    type: object
+    properties:
+      Ref1?:
+        type: string
+      Ref2?:
+        type: string
+      Ref3?:
+        type: string
+      Ref4?:
+        type: string
+      Ref5?:
+        type: string
+      Ref6?:
+        type: string
+      Ref7?:
+        type: string
+      Ref8?:
+        type: string
+      Ref9?:
+        type: string
+      Ref10?:
+        type: string
+      Ref11?:
+        type: string
+      Ref12?:
+        type: string
+      Ref13?:
+        type: string
+      Ref14?:
+        type: string
+      Ref15?:
+        type: string
+      Ref16?:
+        type: string
+      Ref17?:
+        type: string
+      Ref18?:
+        type: string
+      Ref19?:
+        type: string
+      Ref20?:
+        type: string
+  Transaction_Identification:
+    type: object
+    properties:
+      ID?:
+        type: string
+      Ref1?:
+        type: string
+      Ref2?:
+        type: string
+      Ref3?:
+        type: string
+      Ref4?:
+        type: string
+      Ref5?:
+        type: string
+  Error_errorMessage:
+    type: object
+    properties:
+      faultcode?:
+        type: string
+      faultstring?:
+        type: string
+  einvoice_eGovData_DataArea:
+    type: object
+    properties:
+      Transaction?: Transaction
+      Response?: Response
+  MessageHeader_Sender:
+    type: object
+    properties:
+      ID?:
+        type: string
+      Description?:
+        type: string
+      Application?: MessageHeader_Sender_Application
+      ApplicationVersion?:
+        type: string
+      TransactionCode?:
+        type: string
+      IPAddress?:
+        type: string
+      SenderMessageID?:
+        type: string
+      CallingServiceName?:
+        type: string
+      ContactName?:
+        type: string
+      ContactEmail?:
+        type: string
+      ContactPhoneNumber?:
+        type: string
+  Transaction_LineDates:
+    type: object
+    properties:
+      Date1?:
+        type: string
+      Date2?:
+        type: string
+      Date3?:
+        type: string
+      Date4?:
+        type: string
+      Date5?:
+        type: string
+  MessageHeader_MessageTracking_IntermediateMessageHop:
+    type: object
+    properties:
+      SenderResourceTypeCode?:
+        type: string
+      SenderResourceID?:
+        type: string
+      SenderMessageID?:
+        type: string
+      IntermediateMessageHop?:
+        type: string
+  Transaction_GroupReferences:
+    type: object
+    properties:
+      Ref1?:
+        type: string
+      Ref2?:
+        type: string
+      Ref3?:
+        type: string
+      Ref4?:
+        type: string
+      Ref5?:
+        type: string
+      Ref6?:
+        type: string
+      Ref7?:
+        type: string
+      Ref8?:
+        type: string
+      Ref9?:
+        type: string
+      Ref10?:
+        type: string
+  Transaction_LineQuantities:
+    type: object
+    properties:
+      Qty1?:
+        type: string
+      Qty2?:
+        type: string
+      Qty3?:
+        type: string
+      Qty4?:
+        type: string
+      Qty5?:
+        type: string
+  Response:
+    type: object
+    properties:
+      TransactionID?:
+        type: string
+      ResponseCHR1?:
+        type: string
+      ResponseCHR2?:
+        type: string
+      ResponseCHR3?:
+        type: string
+      ResponseCHR4?:
+        type: string
+      ResponseCHR5?:
+        type: string
+      ResponseCHR6?:
+        type: string
+      ResponseCHR7?:
+        type: string
+      ResponseCHR8?:
+        type: string
+      ResponseCHR9?:
+        type: string
+      ResponseCHR10?:
+        type: string
+      ResponseCHR11?:
+        type: string
+      ResponseCHR12?:
+        type: string
+      ResponseCHR13?:
+        type: string
+      ResponseCHR14?:
+        type: string
+      ResponseCHR15?:
+        type: string
+      ResponseDATE1?:
+        type: string
+      ResponseDATE2?:
+        type: string
+      ResponseDATE3?:
+        type: string
+      ResponseDATE4?:
+        type: string
+      ResponseDATE5?:
+        type: string
+      ResponseNUM1?:
+        type: string
+      ResponseNUM2?:
+        type: string
+      ResponseNUM3?:
+        type: string
+      ResponseNUM4?:
+        type: string
+      ResponseNUM5?:
+        type: string
+      ResponseQRCodeCLOB?:
+        type: string
+      ResponseCLOB1?:
+        type: string
+      ResponseCLOB2?:
+        type: string
+      ResponseXML?:
+        type: string
+      ResonseStatus?:
+        type: string
+      ResponseErrorCode?:
+        type: string
+      ResponseErrorMsg?:
+        type: string
+      ResponseWarningMsg?:
+        type: string
+  Transaction_TransactionLine:
+    type: object
+    properties:
+      LineNumber?:
+        type: string
+      LineType?:
+        type: string
+      Date?:
+        type: string
+      Description?:
+        type: string
+      LineQuantities?: Transaction_LineQuantities
+      LineValues?: Transaction_LineValues
+      LineDates?: Transaction_LineDates
+      LineReferences?: Transaction_TaxReferences
+      LineTaxReferences?: Transaction_TaxReferences
+      LineAddress1?: Transaction_Address1
+      LineAddress2?: Transaction_Address2
+  MessageHeader_FaultNotification_FaultMessage:
+    type: object
+    properties:
+      Code?:
+        type: string
+      Text?:
+        type: string
+      Severity?:
+        type: string
+      Stack?:
+        type: string
+      FaultCode?:
+        type: string
+      FaultDescription?:
+        type: string
+      FaultSeverity?:
+        type: string
+      FaultTrace?:
+        type: string
+      FaultCategory?:
+        type: string
+  MessageHeader_Sender_Application:
+    type: object
+    properties:
+      ID?:
+        type: string
+  ResponseMessage:
+    type: object
+    properties:
+      Response?: ResponseMessage_Response
+  MessageHeader_MessageBatch:
+    type: object
+    properties:
+      ID?:
+        type: string
+      Name?:
+        type: string
+      StatusCode?:
+        type: string
+      ResponseMessage?:
+        type: string
+      BatchParameter?: MessageHeader_MessageBatch_BatchParameter
+  Transaction_LineValues:
+    type: object
+    properties:
+      Val1?:
+        type: string
+      Val2?:
+        type: string
+      Val3?:
+        type: string
+      Val4?:
+        type: string
+      Val5?:
+        type: string
+  MessageHeader_MessageProcessingInstruction:
+    type: object
+    properties:
+      EnvironmentCode?:
+        type: string
+      DefinitionID?:
+        type: string
+      InstanceID?:
+        type: string
+      Priority?:
+        type: string
+      CompressedFlag?:
+        type: string
+      CompressedMessage?:
+        type: string
+  Transaction_TransactionContacts:
+    type: object
+    properties:
+      Ref1?:
+        type: string
+      Ref2?:
+        type: string
+      Ref3?:
+        type: string
+      Ref4?:
+        type: string
+      Ref5?:
+        type: string
+  MessageHeader_Target:
+    type: object
+    properties:
+      ID?:
+        type: string
+      OverrideRoutingIndicator?:
+        type: string
+      ServiceName?:
+        type: string
+      ApplicationTypeCode?:
+        type: string
+      EndPointURI?:
+        type: string
+  ResponseMessage_Response:
+    type: object
+    properties:
+      DateTime?:
+        description: Timestamp at which API Processed the message
+        type: string
+      ResponseCode?:
+        description: Response Code in Integer
+        type: string
+      ResponseStatus?:
+        description: Sucess or Failure
+        type: string
+      RequestId?:
+        description: Unique Id generated by Target System if applicable
+        type: string
+      ErrorFlag?:
+        description: Error Flag if applicable
+        type: string
+      ErrorCode?:
+        description: Error code if applicable
+        type: string
+      ErrorMessage?:
+        description: Error Message in breif
+        type: string
+      ErrorTrace?:
+        description: Details Description of Error
+        type: string
+      ActionRecommended?:
+        description: Next Action in case of Errors if Applicable
+        type: string
+  Transaction_Address1:
+    type: object
+    properties:
+      Name?:
+        type: string
+      Num?:
+        type: string
+      AddressLine1?:
+        type: string
+      AddressLine2?:
+        type: string
+      AddressLine3?:
+        type: string
+      AddressLine4?:
+        type: string
+      City?:
+        type: string
+      State?:
+        type: string
+      Province?:
+        type: string
+      County?:
+        type: string
+      Country?:
+        type: string
+      PostalCode?:
+        type: string
+      Formatted?:
+        type: string
+      Address1Ref1?:
+        type: string
+      Address1Ref2?:
+        type: string
+      Address1Ref3?:
+        type: string
+  einvoice_body:
+    type: object
+    properties:
+      eGovData?: einvoice_eGovData
+annotationTypes:
+  amf-serverDescription:
+    type: any
+  amf-exclusiveMinimum:
+    type: any
+  amf-binding:
+    type: any
+  amf-pattern:
+    type: any
+  amf-payloads:
+    type: any
+  amf-exclusiveMaximum:
+    type: any
+  amf-consumes:
+    type: any
+  amf-additionalProperties:
+    type: any
+  amf-or:
+    type: any
+  amf-url:
+    type: any
+  amf-externalDocs:
+    type: any
+  amf-flow:
+    type: any
+  amf-oasDeprecated:
+    type: any
+  amf-contact:
+    type: any
+  amf-multipleOf:
+    type: any
+  amf-xor:
+    type: any
+  amf-not:
+    type: any
+  amf-callbacks:
+    type: any
+  amf-produces:
+    type: any
+  amf-format:
+    type: any
+  amf-license:
+    type: any
+  amf-summary:
+    type: any
+  amf-responses:
+    type: any
+  amf-maximum:
+    type: any
+  amf-tags:
+    type: any
+  amf-dependencies:
+    type: any
+  amf-readOnly:
+    type: any
+  amf-tuple:
+    type: any
+  amf-examples:
+    type: any
+  amf-collectionFormat:
+    type: any
+  amf-termsOfService:
+    type: any
+  amf-servers:
+    type: any
+  amf-xone:
+    type: any
+  amf-defaultResponse:
+    type: any
+  amf-baseUriParameters:
+    type: any
+  amf-parameters:
+    type: any
+  amf-minimum:
+    type: any
+  amf-recursive:
+    type: any
+  amf-and:
+    type: any
+title: DSF Einvoice Europe Esker System API
+baseUri: https://autosolsndbxrtf.emerson.com/d-emrdsf-eu-s-einvoicing-esker/api/einvoice
+(amf-serverDescription): DSF Einvoice Europe Esker System API
+description: |-
+  <b>Overview</b>
+  The System API facilitates the electronic transmission of Accounts Receivable (AR) invoices from Oracle ERP to government authorities via the PEPPOL network. Oracle sends invoice data in JSON format, which the API transforms into UBL EN16931-compliant XML, the standardized format required for PEPPOL e-invoicing. Once transformed, the XML is submitted to the relevant government authority, and the API captures the response and returns it to Oracle for further processing. This integration ensures compliance with European e-invoicing standards while streamlining invoice submission and response handling. <br/>
+  <br/><b>Data Classification</b>Internal
+  <br/><a href="https://saautosolapi.blob.core.windows.net/api-storage-internal/eu_einv_HLD%203.png" target="_blank">High Level Design Diagram</a> </br><a href="https://saautosolapi.blob.core.windows.net/api-storage-internal/dsf_einv_europe_api%202.html" target="_blank">More Information</a>
+version: 1.0.0
+(amf-termsOfService): https://www.emerson.com/en-us/terms-of-use
+(amf-contact):
+  name: DL Autosol Integration Solutions Services DevOps
+  email: IntegrationSolutionsServicesDevOps@Emerson.com
+(amf-tags):
+  -
+    name: DSF Einvoice System API
+    description: System API
+  -
+    name: DataClassification - Internal
+    description: Internal only
+  -
+    name: Einvoice Esker System API
+    description: |-
+      System API to send Einvoice data to Esker
+
+       
+(amf-license):
+  url: https://www.emerson.com
+  name: Emerson
+/einvoice:
+  post:
+    displayName: Einvoice
+    description: Api to call Europe Esker Auth api and upload and process einvoice data.
+    (amf-summary): Api to call Europe Esker Auth api and upload and process einvoice data.
+    (amf-tags):
+      - DSF Einvoice Europe Esker System API
+    headers:
+      client_id:
+        description: enter client id
+        required: true
+        type: string
+      client_secret:
+        description: enter client secret
+        required: true
+        type: string
+    body:
+      application/json: einvoice_body
+    responses:
+      "200":
+        description: Success
+        body:
+          application/json: ResponseMessage
+      "400":
+        description: Bad Request
+        body:
+          application/json: Error
+      "401":
+        description: Unauthorized Access
+        body:
+          application/json: Error
+      "403":
+        description: Forbidden
+        body:
+          application/json: Error
+      "404":
+        description: Not Found
+        body:
+          application/json: Error
+      "429":
+        description: You Have Been Rate Limited, Retry Later
+        body:
+          application/json: Error
+      "500":
+        description: Server Error
+        body:
+          application/json: Error
+      "503":
+        description: Service Unavailable
+        body:
+          application/json: Error
+      "501":
+        description: Unexpected Error
+        body:
+          application/json: Error

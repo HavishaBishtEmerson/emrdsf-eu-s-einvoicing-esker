@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:secure-properties="http://www.mulesoft.org/schema/mule/secure-properties"
+	xmlns:apikit="http://www.mulesoft.org/schema/mule/mule-apikit"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="
+http://www.mulesoft.org/schema/mule/mule-apikit http://www.mulesoft.org/schema/mule/mule-apikit/current/mule-apikit.xsd 
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/secure-properties http://www.mulesoft.org/schema/mule/secure-properties/current/mule-secure-properties.xsd">
+	 <http:listener-config name="api-httpListenerConfig">
+        <http:listener-connection host="0.0.0.0" port="8081" />
+    </http:listener-config>
+    <apikit:config name="api-config" api="api.raml" outboundHeadersMapName="outboundHeaders" httpStatusVarName="httpStatus" />
+	<import doc:name="Import" doc:id="3ada6bdc-7573-4eee-a62e-30b0162637fa" file="clientLoggingPublisherFlow.xml" />
+	<import doc:name="Import" doc:id="b8d0515e-4916-46a7-b3a2-73c9a4bd576a" file="global-exception-handling.xml" />
+	<global-property doc:name="Global Property" doc:id="74f28ff8-fa63-49c9-8c84-02b876add92b" name="key" value="Mulekey@678"/>
+	<global-property doc:name="Global Property" doc:id="fdd4382e-2d4a-4728-a079-75a8c639eb6c" name="env" value="dev" />
+	<configuration doc:name="Configuration" doc:id="a3370d9e-34b4-49d4-9ca2-7aed7e4da82b" defaultErrorHandler-ref="global-exception-handlingOnErrorPropagate" />
+	<secure-properties:config name="Secure_Properties_Config" doc:name="Secure Properties Config" doc:id="aac328a8-cb49-4ae8-82a6-2551bced181a" file="properties/${env}.yaml" key="${key}" >
+		<secure-properties:encrypt algorithm="Blowfish" />
+	</secure-properties:config>
+</mule>
