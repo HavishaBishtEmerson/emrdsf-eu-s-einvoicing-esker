@@ -252,7 +252,8 @@ output application/xml
       'cbc:ChargeTotalAmount': payload.eGovData.DataArea.Transaction.TransactionValues.Val4,
       'cbc:PayableAmount': payload.eGovData.DataArea.Transaction.TransactionValues.Val5,
       'cbc:PrepaidAmount': payload.eGovData.DataArea.Transaction.TransactionValues.Val7,
-      'cbc:PayableRoundingAmount': payload.eGovData.DataArea.Transaction.TransactionValues.Val8
+      'cbc:PayableRoundingAmount': payload.eGovData.DataArea.Transaction.TransactionValues.Val8,
+      'cbc:AllowanceTotalAmount': payload.eGovData.DataArea.Transaction.TransactionValues.Val9
     },
     'cac:TaxTotal': {
       'cbc:TaxAmount': payload.eGovData.DataArea.Transaction.TransactionValues.Val6,
