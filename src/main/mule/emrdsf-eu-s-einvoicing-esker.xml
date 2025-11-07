@@ -142,7 +142,7 @@ payload.eGovData.DataArea.Transaction.Num default ""]]></ee:set-variable>
 			<ee:variables>
 				<ee:set-variable variableName="uploadRequest"><![CDATA[%dw 2.0
 output application/xml
-
+ 
 ---
 {
   'Invoice'
@@ -306,11 +306,20 @@ output application/xml
           'cac:TaxScheme': {
             'cbc:ID': item.LineTaxReferences.Ref3
           }
-        }
+        },
+              'cac:AllowanceCharge': {
+        'cbc:Amount': item.LineValues.Val3,
+        'cbc:MultiplierFactorNumeric': item.LineValues.Val4,
+        'cbc:AllowanceChargeReason': item.LineReferences.Ref11,
+        'cbc:ChargeIndicator': item.LineReferences.Ref12,
+        'cbc:AllowanceChargeReasonCode': item.LineReferences.Ref13,
+        'cbc:AllowanceChargeReason': item.LineReferences.Ref14
+      }
       }
     }
   }
 }
+
 ]]></ee:set-variable>
 			</ee:variables>
 		</ee:transform>
